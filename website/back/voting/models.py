@@ -9,3 +9,8 @@ class Voters(models.Model):
     private_key = models.CharField(max_length=150)
     nonce = models.IntegerField()
 
+class Candidates(models.Model):
+    """Class that contains the Candidates for the specific election."""
+
+    election_id = models.CharField(max_length=50, primary_key=True)
+    list_of_candidates = models.JSONField()
