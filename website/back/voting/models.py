@@ -14,3 +14,11 @@ class Candidates(models.Model):
 
     election_id = models.CharField(max_length=50, primary_key=True)
     list_of_candidates = models.JSONField()
+
+class Campaign(models.Model):
+    """Class that contains all the intel about an election."""
+
+    voting_type = models.CharField(max_length=100)
+    voting_method = models.CharField(max_length=150)
+    voting_delay = models.CharField(max_length=150)
+    
