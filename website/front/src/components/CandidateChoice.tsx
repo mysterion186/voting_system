@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import ApiService from "../service/ApiService";
+import { useNavigate } from "react-router"; 
 
 function CandidateChoice(){
     const [candidates, setCandidates] = useState<[string]>([""]);
     const [canVote, setCanVote] = useState<boolean>(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchData(){
@@ -21,8 +23,12 @@ function CandidateChoice(){
     }, [])
     
     const handleClick = () => {
-        console.log("Je vais utiliser taquito pour envoyer ton vote sur la blockchain, tkt pas ça va bien se passer")
+        console.log("Je vais utiliser taquito pour envoyer ton vote sur la blockchain, tkt pas ça va bien se passer");
 
+        // selon le status de taquito (si l'utilisateur a le droit de voter ou non)
+        var res = true; 
+        const link = res ? "done" : "error";
+        navigate(link)
     }
 
     if (canVote){

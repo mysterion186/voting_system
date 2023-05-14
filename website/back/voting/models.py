@@ -21,7 +21,6 @@ class New_voters(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     wallet = models.ForeignKey(Wallet,on_delete=models.CASCADE)
 
-
 class Vote(models.Model):
     admin  = models.OneToOneField(User,on_delete=models.CASCADE)
     #payer = admin
@@ -42,3 +41,4 @@ class Weight_arrays(models.Model):
     vote = models.ForeignKey(Vote,on_delete=models.CASCADE)
     wallet = models.ForeignKey(Wallet,on_delete=models.CASCADE)
     weight = models.FloatField(default=1.0)
+
