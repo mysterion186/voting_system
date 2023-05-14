@@ -13,8 +13,6 @@ class MyUserManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),
-            wallet=wallet,
-            user_type=user_type
         )
 
         user.set_password(password)
