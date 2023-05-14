@@ -29,7 +29,7 @@ export default {
         })
     },
 
-    getLoginToken(data: {username: string, password: string}){
+    getLoginToken(data: {email: string, password: string}){
         return this.call("post","user/token/", data);
     },
 

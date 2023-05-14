@@ -15,7 +15,7 @@ function LoginPage() {
     }
     
     const handleClick = () => {
-        ApiService.getLoginToken({username:email, password:password}).then((res:any) => {
+        ApiService.getLoginToken({email:email, password:password}).then((res:any) => {
             if (res.status === 200){
                 console.log("On va devoir te déplacer mec !")
             }

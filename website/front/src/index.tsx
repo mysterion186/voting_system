@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './components/LoginPage';
 import CandidateChoice from './components/CandidateChoice';
 import VoteEndPage from './components/VoteEndPage';
-
+import Accueil from './components/Accueil';
 
 import {
   createBrowserRouter,
@@ -20,12 +20,16 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <div>Page d'accueil</div>
+        element: <Accueil />,
       },
       {
         path: "login" ,
         element: <LoginPage />
       },
+      {
+        path: "about",
+        element: <div>About page</div>
+      }
     ]
   },
   {
