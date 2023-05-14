@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import HomePage from './pages/HomePage';
 import LoginPage from './components/LoginPage';
+import CandidateChoice from './components/CandidateChoice';
+import VoteEndPage from './components/VoteEndPage';
+
 
 import {
   createBrowserRouter,
@@ -16,7 +19,11 @@ const router = createBrowserRouter([
     element: <HomePage />,
     children: [
       {
-        path: "" ,
+        path: "",
+        element: <div>Page d'accueil</div>
+      },
+      {
+        path: "login" ,
         element: <LoginPage />
       },
     ]
@@ -25,10 +32,6 @@ const router = createBrowserRouter([
     path: "/admin",
     element: <HomePage />,
     children: [
-      // {
-      //   path: "" ,
-      //   element: <LoginPage />
-      // },
       {
         path: "dashboard",
         element: <div>Dashboard</div>
@@ -36,24 +39,20 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path: "votes",
-    element: <div>Page de connexion pour les votans</div>,
+    path: "/votes",
+    element: <HomePage />,
     children:[
       {
         path: "",
-        element: <div>Vote</div>,
+        element: <CandidateChoice />,
       },
       {
         path: "error",
-        element: <div>Vous ne pouvez pas voter avec ce compte !</div>
-      },
-      {
-        path: "finalize",
-        element: <div>Faite le choix final</div>
+        element: <VoteEndPage text="Vous ne pouvez pas voter avec ce compte !" />
       },
       {
         path: "done",
-        element: <div>La confirmation du vote est partie</div>
+        element: <VoteEndPage text="Votre vote a été pris en compte !" />
       }
     ]
   }

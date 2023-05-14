@@ -11,5 +11,12 @@ export default {
     },
     getUserToken():string|null{
         return window.localStorage.getItem('userToken');
+    },
+
+    saveUserType(user_type: string): void {
+        window.localStorage.setItem('userType', user_type);
+    },
+    getUserType():string|null{
+        return window.localStorage.getItem('userType');
     }
 }

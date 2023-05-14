@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from back.settings import AUTH_USER_MODEL
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, wallet, user_type, password=None):
@@ -71,3 +71,9 @@ class MyUser(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+    
+
+    class Wallet(models.Model):
+        adress = models.ForeignKey
+        public_key = models.CharField(max_length=64)
+
