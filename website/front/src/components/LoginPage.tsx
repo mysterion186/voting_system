@@ -1,8 +1,10 @@
 import { useState } from "react";
 import ApiService from "../service/ApiService";
+import { useNavigate } from "react-router";
+
 
 function LoginPage() {
-    
+    const navigate = useNavigate();    
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
@@ -18,6 +20,7 @@ function LoginPage() {
         ApiService.getLoginToken({email:email, password:password}).then((res:any) => {
             if (res.status === 200){
                 console.log("On va devoir te déplacer mec !")
+                navigate("/votes/");
             }
             else {
                 console.log("Casse toi de là")
