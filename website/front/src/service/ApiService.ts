@@ -33,4 +33,8 @@ export default {
         return this.call("post","user/token/", data);
     },
 
+    getCandidatesForElection(election_id:string){
+        return this.call("get","vote/get-candidate/" + election_id)
+    }
+
 }
